@@ -513,9 +513,13 @@ footer p {
     function loadCatalog(category = '') {
         const catalogFiltros = document.getElementById('catalog-filtros');
         const catalogAceites = document.getElementById('catalog-aceites');
+        const catalogRefrigerantes = document.getElementById('catalog-refrigerantes');
+        const catalogGrasas = document.getElementById('catalog-grasas');
         const catalogOtros = document.getElementById('catalog-otros');
         catalogFiltros.innerHTML = '';
         catalogAceites.innerHTML = '';
+        catalogRefrigerantes.innerHTML = '';
+        catalogGrasas.innerHTML = '';
         catalogOtros.innerHTML = '';
 
         for (let id in products) {
@@ -533,6 +537,10 @@ footer p {
                     catalogFiltros.appendChild(productDiv);
                 } else if (product.category === 'aceites') {
                     catalogAceites.appendChild(productDiv);
+                } else if (product.category === 'refrigerantes') {
+                    catalogRefrigerantes.appendChild(productDiv);
+                } else if (product.category === 'grasas') {
+                    catalogGrasas.appendChild(productDiv);
                 } else {
                     catalogOtros.appendChild(productDiv);
                 }
@@ -541,6 +549,10 @@ footer p {
                     catalogFiltros.appendChild(productDiv);
                 } else if (category === 'aceites') {
                     catalogAceites.appendChild(productDiv);
+                } else if (category === 'refrigerantes') {
+                    catalogRefrigerantes.appendChild(productDiv);
+                } else if (category === 'grasas') {
+                    catalogGrasas.appendChild(productDiv);
                 } else {
                     catalogOtros.appendChild(productDiv);
                 }
@@ -646,10 +658,14 @@ footer p {
             <button class="category-button" onclick="loadCatalog('todos')">Todos</button>
             <button class="category-button" onclick="loadCatalog('filtros')">Filtros</button>
             <button class="category-button" onclick="loadCatalog('aceites')">Aceites</button>
+            <button class="category-button" onclick="loadCatalog('refrigerantes')">Refrigerantes</button> 
+            <button class="category-button" onclick="loadCatalog('grasas')">Grasas</button>
             <button class="category-button" onclick="loadCatalog('otros')">Otros</button>
         </div>
         <div id="catalog-filtros" class="catalog"></div>
         <div id="catalog-aceites" class="catalog"></div>
+        <div id="catalog-refrigerantes" class="catalog"></div> 
+        <div id="catalog-grasas" class="catalog"></div>
         <div id="catalog-otros" class="catalog"></div>
     </div>
     <div id="product-details" class="container hidden">
