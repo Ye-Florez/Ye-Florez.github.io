@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    git init
+    git add .
+    git commit -m "Subiendo mi página web"
+    git remote add origin https://github.com/tu-usuario/mi-pagina-web.git
+    git push -u origin master
+    <title>Tienda de Productos Automotrices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            background-color: #1f6db3; /* Azul oscuro */
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header img {
+            max-width: 150px; /* Ajusta el tamaño del logo */
+            margin-bottom: 10px;
+        }
+
+        nav {
+            width: 100%;
+            background-color: #1f6db3; /* Azul oscuro */
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .product {
+            background-color: #eef; /* Ligero tono azul */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer; /* Indica que es clicable */
+            transition: transform 0.2s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h2 {
+            margin: 10px 0;
+            color: #1f6db3; /* Azul oscuro */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .product-details {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .product-details img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 5px;
+        }
+
+        .product-info {
+            max-width: 600px;
+        }
+
+        .product-info h2 {
+            color: #1f6db3; /* Azul oscuro */
+        }
+
+        .product-info p {
+            margin: 10px 0;
+        }
+
+        .whatsapp-button, .back-button {
+    display: inline-block;  /* Asegura que los botones estén uno debajo del otro *//* Asegura que los botones ocupen el ancho completo del contenedor */
+    background-color: #25D366;  /* Color de fondo verde para el botón de WhatsApp */
+    color: #fff;  /* Color del texto blanco */
+    padding: 10px 20px;  /* Relleno del botón */
+    text-decoration: none;  /* Sin subrayado */
+    border-radius: 5px;  /* Bordes redondeados */
+    font-size: 16px;  /* Tamaño de fuente */
+    margin: 5px 0;  /* Espacio vertical entre los botones */
+    cursor: pointer;  /* Cursor de mano para indicar que es clicable */
+}
+
+.whatsapp-button:hover {
+    background-color: #1EBE54;  /* Color de fondo más oscuro al pasar el mouse */
+}
+
+.back-button {
+    background-color: #1f6db3;  /* Color de fondo azul para el botón de volver */
+}
+
+.back-button:hover {
+    background-color: #154e84;  /* Color de fondo más oscuro al pasar el mouse */
+}
+
+
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Espacio entre los elementos */
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px 0 0 5px; /* Bordes redondeados en las esquinas izquierdas */
+            border: 1px solid #ddd;
+            outline: none;
+            height: 42px; /* Ajusta la altura para que coincida con el botón */
+            box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            background-color: #1f6db3; /* Azul oscuro */
+            color: #fff;
+            cursor: pointer;
+            height: 42px; /* Asegura que la altura coincida con el input */
+            box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+            border-radius: 0 5px 5px 0; /* Bordes redondeados en las esquinas derechas */
+        }
+
+        .search-bar button:hover {
+            background-color: #154e84; /* Azul más oscuro */
+        }
+
+        .category-button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            background-color: #1f6db3; /* Azul oscuro */
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .category-button:hover {
+            background-color: #154e84; /* Azul más oscuro */
+        }
+        footer {
+    width: 100%;
+    background-color: #1f6db3; /* Azul oscuro */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+    .carousel-container {
+        width: 100%; 
+        max-width: 800px; 
+        height: 500px;
+        position: relative; 
+        margin: auto; 
+        overflow: hidden; 
+    }
+    .carousel-slide { 
+        display: flex; 
+        transition: transform 0.5s ease-in-out; 
+    }
+    .carousel-slide img {
+        width: 100%; 
+        height: 100%;
+        object-fit: cover; 
+    }
+    .prev, .next {
+        position: absolute; 
+        top: 50%; 
+        transform: translateY(-50%); 
+        background-color: rgba(255,255,255,0.8); 
+        color: blue; 
+        border: none; 
+        cursor: pointer; 
+        padding: 15px; 
+        z-index: 1; 
+        border-radius: 50%;
+        font-size: 24px;
+        transition: background-color 0.3s, transform 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .prev:hover, .next:hover { 
+        background-color: rgba(255,255,255,1);
+        transform: scale(1.2); 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .prev { left: 10px; } 
+    .next { right: 10px; }
+    .testimonials-container {
+        width: 100%;
+        max-width: 800px; 
+        margin: 50px auto 20px; 
+        padding: 20px; 
+        text-align: center; 
+        background-color: #f9f9f9;
+        border-radius: 10px; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }    
+    .testimonial { 
+        margin-bottom: 20px; 
+    }
+    .testimonial p { 
+        font-size: 16px; 
+        color: #333; 
+    }
+    .testimonial h4 { 
+        font-size: 18px; 
+        color: #555; 
+        margin-top: 10px; 
+    }
+    </style>
+    <script>
+        let slideIndex = 0;
+        function showSlides() { 
+            const slides = document.querySelectorAll('.carousel-slide img'); 
+            for (let i = 0; i < slides.length; i++) { 
+                slides[i].style.display = 'none';
+            } slideIndex++; 
+            if (slideIndex > slides.length) {slideIndex = 1} 
+            slides[slideIndex-1].style.display = 'block'; 
+            setTimeout(showSlides, 3000); // Cambia la imagen cada 3 segundos 
+        }
+        function moveSlide(n) { 
+            slideIndex += n - 1; 
+            showSlides(); 
+        }
+        window.onload = showSlides;
+        
+        var products = {
+        1: {
+            img: 'img/FA-A14616.png',
+            title: 'Filtro de aceite A14616',
+            category: 'filtros',
+            description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para la marca CHEVROLET.',
+            additionalImg: 'img/FA-A14616-A.png'  // Imagen adicional
+        },
+        2: {
+            img: 'img/FA-A14476.png',
+            title: 'Filtro de aceite A14476',
+            category: 'filtros',
+            description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para las marcas BYD, CASE/CASE IH, CHERY, CHEVROLET, DAIHATSU, GEELY, GREAT WALL, ISEKI, JOHN DEERE, KAWASAKI, NISSAN, SIMPLICITY, TOYOTA, ZOTIE.',
+            additionalImg: 'img/FA-A14476-A.png'  // Imagen adicional
+        },
+        3: {
+            img: 'img/FA-A111.png',
+            title: 'Filtro de aceite A111',
+            category: 'filtros',
+            description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para las marcas CHEVROLET, DAEWOO, GMC, HYSTER.',
+            additionalImg: 'img/FA-A111-A.png'  // Imagen adicional
+        },
+        4: {
+            img: 'img/FA-A323.png',
+            title: 'Filtro de aceite A323',
+            category: 'filtros',
+            description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para las marcas AUSA, BOBCAT, CHEVROLET, GEHL, GENIE, HITACHI, HONDA, INGERSOLLRAND, JOHN DEERE, KAESER, KOMATSU, KUBOTA, MAZDA, MCCORMICK, MITSUBISHI, TENNANT,TORO, WESTERBEKE.',
+            additionalImg: 'img/FA-A323-A.png'  // Imagen adicional
+        },
+        5: {
+            img: 'img/FA-A1402.png',
+            title: 'Filtro de aceite A1402',
+            category: 'filtros',
+            description: 'Filtro de aceite flujo completo, especial para transporte liviano.\nSu aplicación principal es para las marcas CASE/CASE IH, CITROEN, DEUTZ-FAHR, FIAT, GREAT WALL, HITACHI, HONDA, HUERLIMANN TRACTORS, HYUNDAI, IHI, JAC, KOMATSU, MASSEY FERGUSON, MAZDA, MITSUBISHI, NEUSON, NISSAN, POLARIS, SAME, TORO, YANMAR.',
+            additionalImg: 'img/FA-A1402-A.png'  // Imagen adicional
+        },
+        6: {
+            img: 'img/FA-A223.png',
+            title: 'Filtro de aceite A223',
+            category: 'filtros',
+            description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para las marcas CHERY, CHEVROLET, FORD, JEEP, MCCORMICK, SKODA, SULLAIR, SUNWARD, SUZUKI, TOYOTA, VOLKSWAGEN.',
+            additionalImg: 'img/FA-A223-A.png'  // Imagen adicional
+        },
+        7: {
+            img: 'img/FA-A7041SP.png',
+            title: 'Filtro de aceite A7041SP',
+            category: 'filtros',
+            description: 'Filtro de aceite flujo completo, especial para transporte mediano.\n\nSu aplicación principal es para las marcas CHEVROLET, CLARK, DETROIT DIESEL, HINO, ISUZU.',
+            additionalImg: 'img/FA-A7041SP-A.png'  // Imagen adicional
+        },
+        8: {
+            img: 'img/FAR-AP2712.png',
+            title: 'Filtro de aire AP2712',
+            category: 'filtros',
+            description: 'Filtro de aire primario, cilíndrico. Especial para transporte mediano.\n\nSu aplicación principal es para las marcas CHEVROLET, GMC, HITACHI, IHI, ISUZU, JAC, JCB, KUBOTA, NISSAN.',
+            additionalImg: 'img/FAR-AP2712-A.png'  // Imagen adicional
+        },
+        9: {
+            img: 'img/FAR-AP4495.png',
+            title: 'Filtro de aire AP4495',
+            category: 'filtros',
+            description: 'Filtro de aire primario, panel rígido. Especial para transporte liviano.\n\nSu aplicación principal es para la marca CHEVROLET.',
+            additionalImg: 'img/FAR-AP4495-A.png'  // Imagen adicional
+        },
+        10: {
+            img: 'img/FAR-AP0978.png',
+            title: 'Filtro de aire AP0978',
+            category: 'filtros',
+            description: 'Filtro de aire primario, panel flexible. Especial para transporte liviano.\n\nSu aplicación principal es para las marcas DACIA, RENAULT.',
+            additionalImg: 'img/FAR-AP0978-A.png'  // Imagen adicional
+        },
+        11: {
+            img: 'img/FAR-AP3196.png',
+            title: 'Filtro de aire AP3196',
+            category: 'filtros',
+            description: 'Filtro de aire primario, panel rígido. Especial para transporte liviano.\n\nSu aplicación principal es para la marca CHEVROLET.',
+            additionalImg: 'img/FAR-AP3196-A.png'  // Imagen adicional
+        },
+        11: {
+            img: 'img/FAR-AP3554.png',
+            title: 'Filtro de aire AP3554',
+            category: 'filtros',
+            description: 'Filtro de aire primario, panel flexible. Especial para transporte liviano.\n\nSu aplicación principal es para las marcas RENAULT, SSANGYONG.',
+            additionalImg: 'img/FAR-AP3554-A.png'  // Imagen adicional
+        },
+        12: {
+            img: 'img/FAR-APC010.png',
+            title: 'Filtro de aire APC010',
+            category: 'filtros',
+            description: 'Filtro de aire primario, cilíndrico. Especial para transporte liviano diésel.\n\nSu aplicación principal es para las marcas FORD, MAZDA, TOYOTA.',
+            additionalImg: 'img/FAR-APC010-A.png'  // Imagen adicional
+        },
+        13: {
+            img: 'img/FC-PFG25121074.png',
+            title: 'Filtro de combustible PFG25121074',
+            category: 'filtros',
+            description: 'Filtro de combustible gasolina. Especial para transporte liviano.\n\nSu aplicación principal es para las marcas CHANGAN, CHERY, CHEVROLET, DAEWOO, FIAT, FOTON, HONDA, JEEP, MAZDA.',
+            additionalImg: 'img/FC-PFG25121074-A.png'  // Imagen adicional
+        },
+        14: {
+            img: 'img/FC-A941SP.png',
+            title: 'Filtro de combustible A941SP',
+            category: 'filtros',
+            description: 'Filtro de combustible primario. Especial para transporte mediano. \n\nSu aplicación principal es para las marcas ISUZU, KOMATSU, NISSAN, ROSCO, TOYOTA.',
+            additionalImg: 'img/FC-A941SP-A.png'  // Imagen adicional
+        },
+        15: {
+            img: 'img/FC-A243004.png',
+            title: 'Filtro de combustible A243004',
+            category: 'filtros',
+            description: 'Filtro de combustible primario. Especial para transporte mediano. \n\nSu aplicación principal es para las marcas AGRALE, ALLIS-CHALMERS, ASKAM KAMYON, ATLAS COPCO, ATLAS WEYHAUSEN, BARREIROS, BAUMANN,BERTHOUD, BMC, BOBCAT, BUEHRER, CARRARO, CASE/CASE IH, CHAMPION ROAD, CLARK, COMPAIR, DEMAG, DENNIS, DEUTZ, DEUTZ-FAHR, DITCH WITCH, DOPPSTADT, DYNAPAC, EICHER, FENDT, FIATALLIS, FORD, FOTON, FREEMAN, GENIE, GOLDO TRACTORS, HAMM, HITACHI, HOLDER TRACTORS, HUERLIMANN TRACTORS,IKARUS, IRISBUS, IVECO, JELCZ, KALMAR, KENWORTH, KOMATSU, KRAMER, LIEBHERR, LINDE, MANITOU,MENGELE, ORENSTEIN & KOPPEL, PEGASO, REFORM-WERKE, RENAULT VI, ROMAN, SAMBRON, SAME, SCHANZLIN, STEINBOCK, STILL, TIMBERJACK, VALMET, VOLKSWAGEN,VOLVO, WHITE.',
+            additionalImg: 'img/FC-A243004-A.png'  // Imagen adicional
+        },
+        16: {
+            img: 'img/FC-PP7355.png',
+            title: 'Filtro de combustible PP7355',
+            category: 'filtros',
+            description: 'Filtro de combustible primario. Especial para transporte liviano diésel. \n\nSu aplicación principal es para las marcas CHEVROLET, ISUZU, MITSUBISHI, TOYOTA.',
+            additionalImg: 'img/FC-PP7355-A.png'  // Imagen adicional
+        },
+        16: {
+            img: 'img/FC-AK570SP.png',
+            title: 'Filtro de combustible AK570SP',
+            category: 'filtros',
+            description: 'Filtro separador agua combustible con sensor. Especial para transporte liviano. \n\nSu aplicación principal es para las marcas ASIA, CATERPILLAR, CHEVROLET, DAIHATSU, GMC, HITACHI, HYSTER.',
+            additionalImg: 'img/FC-AK570SP-A.png'  // Imagen adicional
+        },
+        17: {
+            img: 'img/FCA-AP3109.png',
+            title: 'Filtro de cabina AP3109',
+            category: 'filtros',
+            description: 'Filtro de aire primario, panel rígido. Especial para transporte liviano. \n\nSu aplicación principal es para la marca MAZDA.',
+            additionalImg: 'img/FCA-AP3109-A.png'  // Imagen adicional
+        },
+        18: {
+            img: 'img/FCA-AP31064.png',
+            title: 'Filtro de cabina AP31064',
+            category: 'filtros',
+            description: 'Filtro de aire acondicionado de cabina, panel rígido. Especial para transporte liviano. \n\nSu aplicación principal es para la marca RENAULT.',
+            additionalImg: 'img/FCA-AP31064-A.png'  // Imagen adicional
+        },
+        19: {
+            img: 'img/FCA-AP31088.png',
+            title: 'Filtro de cabina AP31088',
+            category: 'filtros',
+            description: 'Filtro de aire acondicionado de cabina, panel rígido. Especial para transporte liviano. \n\nSu aplicación principal es para la marca NISSAN.',
+            additionalImg: 'img/FCA-AP31088-A.png'  // Imagen adicional
+        },
+        20: {
+            img: 'img/FCA-AP31081.png',
+            title: 'Filtro de cabina AP31081',
+            category: 'filtros',
+            description: 'Filtro de aire acondicionado de cabina, panel rígido. Especial para transporte liviano. \n\nSu aplicación principal es para la marca SUBARU, TOYOTA.',
+            additionalImg: 'img/FCA-AP31081-A.png'  // Imagen adicional
+        }
+        // Agrega más productos aquí
+    };
+
+    function showProduct(productId) {
+        document.getElementById('inicio').classList.add('hidden');
+        document.getElementById('nosotros').classList.add('hidden');
+        document.getElementById('productos').classList.add('hidden');
+        document.getElementById('product-details').classList.remove('hidden');
+
+        var product = products[productId];
+        document.getElementById('product-img').src = product.img;
+        document.getElementById('product-title').innerText = product.title;
+        document.getElementById('product-description').innerText = product.description;
+        document.getElementById('whatsapp-link').href = 'https://wa.me/573107843533?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20' + encodeURIComponent(product.title);
+        
+        // Mostrar la imagen adicional
+        var additionalImgElement = document.getElementById('additional-info-img');
+        if (product.additionalImg) {
+            additionalImgElement.src = product.additionalImg;
+            additionalImgElement.classList.remove('hidden');
+        } else {
+            additionalImgElement.classList.add('hidden');
+        }
+    }
+
+        function showCatalog(category = '') {
+            document.getElementById('inicio').classList.add('hidden');
+            document.getElementById('nosotros').classList.add('hidden');
+            document.getElementById('product-details').classList.add('hidden');
+            document.getElementById('productos').classList.remove('hidden');
+
+            loadCatalog(category);
+        }
+
+        function searchProduct() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const catalogFiltros = document.getElementById('catalog-filtros');
+            const catalogAceites = document.getElementById('catalog-aceites');
+            const catalogOtros = document.getElementById('catalog-otros');
+                    // Asegúrate de que los contenedores existen antes de limpiar
+        if (catalogFiltros) catalogFiltros.innerHTML = '';
+        if (catalogAceites) catalogAceites.innerHTML = '';
+        if (catalogOtros) catalogOtros.innerHTML = '';
+
+        for (let id in products) {
+            const product = products[id];
+            if (product.title.toLowerCase().includes(searchTerm)) {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.setAttribute('onclick', `showProduct(${id})`);
+                productDiv.innerHTML = `
+                    <img src="${product.img}" alt="${product.title}">
+                    <h2>${product.title}</h2>
+                `;
+
+                if (product.category === 'filtros') {
+                    if (catalogFiltros) catalogFiltros.appendChild(productDiv);
+                } else if (product.category === 'aceites') {
+                    if (catalogAceites) catalogAceites.appendChild(productDiv);
+                } else if (catalogOtros) {
+                    catalogOtros.appendChild(productDiv);
+                }
+            }
+        }
+    }
+
+    function loadCatalog(category = '') {
+        const catalogFiltros = document.getElementById('catalog-filtros');
+        const catalogAceites = document.getElementById('catalog-aceites');
+        const catalogOtros = document.getElementById('catalog-otros');
+        catalogFiltros.innerHTML = '';
+        catalogAceites.innerHTML = '';
+        catalogOtros.innerHTML = '';
+
+        for (let id in products) {
+            const product = products[id];
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            productDiv.setAttribute('onclick', `showProduct(${id})`);
+            productDiv.innerHTML = `
+                <img src="${product.img}" alt="${product.title}">
+                <h2>${product.title}</h2>
+            `;
+
+            if (category === 'todos' || category === '') {
+                if (product.category === 'filtros') {
+                    catalogFiltros.appendChild(productDiv);
+                } else if (product.category === 'aceites') {
+                    catalogAceites.appendChild(productDiv);
+                } else {
+                    catalogOtros.appendChild(productDiv);
+                }
+            } else if (product.category === category) {
+                if (category === 'filtros') {
+                    catalogFiltros.appendChild(productDiv);
+                } else if (category === 'aceites') {
+                    catalogAceites.appendChild(productDiv);
+                } else {
+                    catalogOtros.appendChild(productDiv);
+                }
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        showSection('inicio'); // Mostrar la sección de inicio por defecto
+    });
+
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.container');
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.classList.remove('hidden');
+            } else {
+                section.classList.add('hidden');
+            }
+        });
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="Logo de la tienda" width="1400" height="90">
+        
+    </header>
+    <nav>
+        <a onclick="showSection('inicio')">Inicio</a>
+        <a onclick="showSection('nosotros')">Nosotros</a>
+        <a onclick="showCatalog('todos')">Productos</a>
+    </nav>
+    <div id="inicio" class="container">
+        <h1>Bienvenidos a MAC</h1>
+        <p>Encuentra los mejores productos automotrices aquí.</p>
+        <div class="carousel-container">
+            <div class="carousel-slide" id="carousel-slide">
+                <img src="img/D-AUT4.png" alt="Imagen 1">
+                <img src="img/D-AUT2.png" alt="Imagen 2">
+                <img src="img/D-AUT3.png" alt="Imagen 2">
+            </div>
+        </div>
+        
+        <div id="ubicacion" class="container">
+            <h1>Nos puedes encontrar de manera fisica en</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3576.5480107973904!2d-72.44196532551068!3d7.872641106017866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1ses-419!2sco!5e1!3m2!1ses-419!2sco!4v1631297026537!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div id="testimonials" class="testimonials-container">
+            <h2>Opiniones de Nuestros Clientes</h2>
+            <div class="testimonial">
+                <p>"Excelente servicio y productos de alta calidad. Muy satisfecho con mi compra."</p>
+                <h4>- Juan Pérez</h4>
+            </div>
+            <div class="testimonial">
+                <p>"La atención al cliente es increíble. Me ayudaron a encontrar justo lo que necesitaba."</p>
+                <h4>- María López</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Definitivamente recomendaría esta tienda a todos mis amigos. ¡Gracias por todo!"</p>
+                <h4>- Carlos Gómez</h4>
+            </div>
+        </div>
+
+        <h1>Nuestras redes sociales</h1>
+        <a href="https://www.facebook.com/profile.php?id=61561138335849&mibextid=ZbWKwL" target="_blank"> <img src="img/D-FACE.png" alt="Facebook" > </a> 
+        <a href="https://www.instagram.com/filtrosyaceitesmac/profilecard/?igsh=MTJpdzFsa2Q0NDMzNQ==" target="_blank"> <img src="img/D-INSTA.png" alt="Instagram" > </a>
+        <a href="https://wa.me/573002917564?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20productos%20" target="_blank"> <img src="img/D-WHATS.png" alt="Instagram" > </a>
+        <h2></h2>
+        <h2>Gracias por preferirnos</h2>
+    </div>
+    <div id="nosotros" class="container hidden">
+        <h1>Quienes somos</h1>
+        <p>FILTROS Y ACEITES MAC, ubicado en la ciudad de Cúcuta, nació en el año 2024, fruto de la dedicación de nuestro personal experimentado. Somos una empresa comprometida en ofrecer productos de mantenimiento automotriz de alto rendimiento, que cuidarán y prolongarán la vida de sus vehículos.</p>
+        <h1>Visión</h1>
+        <p>FILTROS Y ACEITES MAC se visualiza en el 2030 como una empresa destacada en el sector automotriz a nivel nacional. Sus soluciones serán reconocidas por los clientes como un símbolo de calidad y rendimiento, y su enfoque estará dirigido a satisfacer sus necesidades sin perder de vista el impacto medioambiental, al incentivar el uso adecuado de sus productos con campañas de concientización y reciclaje.</p>
+        <h1>Misión</h1>
+        <p>FILTROS Y ACEITES MAC es una organización dedicada a la comercialización de productos consumibles del sector automotriz, con énfasis en vehículos medianos. Estos productos son reconocidos a nivel internacional y son certificados según normas ASTM, Sura e ISO. La empresa está respaldada por un personal humano competente y entregado a representar nuestra honestidad, responsabilidad y compromiso, en adición a esto contamos con una completa red de distribución y servicios para proveer soluciones eficientemente en toda el área metropolitana de Cúcuta.</p>
+        <img src="img/D-SEP.png">
+        <h1>Nuestro Talento humano</h1>
+        <img src="img/TH-GERE.png">
+        <h2>Gerencia</h2>
+        <p>Contador Público graduado de la UFPS con experiencia en la adquisición de productos de grandes compañías, estableciendo acuerdos comerciales y negociando con otras ciudades para asegurar un suministro constante y competitivo.</p>
+        <img src="img/TH-DISTRI.png">
+        <h2>Distribución y venta</h2>
+        <p>Cuenta con 22 años de experiencia como asesor comercial en la empresa en ProCar Inversiones en su en Cúcuta . Se encarga de la distribución de productos y la gestión de ventas directas a clientes, asegurando la correcta finalización de todas las transacciones.</p>
+        <img src="img/TH-FAC.png">
+        <h2>Gestión de facturación</h2>
+        <p>Abogado graduado de la UFPS con experiencia como gestor de facturación en la empresa. Se encarga de asegurar la precisión de las transacciones y de empacar los productos, garantizando que estén organizados y protegidos para su entrega en óptimas condiciones.</p>
+        <img src="img/D-SEP.png">
+        <h1>Nuestras politicas</h1>
+        <h2>Devolución</h2>
+        <h2>Garantias</h2>
+    </div>
+    <div id="productos" class="container hidden">
+        <h2>Catálogo de Productos</h2>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar producto...">
+            <button onclick="searchProduct()">Buscar</button>
+        </div>
+        <div>
+            <button class="category-button" onclick="loadCatalog('todos')">Todos</button>
+            <button class="category-button" onclick="loadCatalog('filtros')">Filtros</button>
+            <button class="category-button" onclick="loadCatalog('aceites')">Aceites</button>
+            <button class="category-button" onclick="loadCatalog('otros')">Otros</button>
+        </div>
+        <div id="catalog-filtros" class="catalog"></div>
+        <div id="catalog-aceites" class="catalog"></div>
+        <div id="catalog-otros" class="catalog"></div>
+    </div>
+    <div id="product-details" class="container hidden">
+        <div class="product-details">
+            <img id="product-img" src="" alt="Producto">
+            <div class="product-info">
+                <h2 id="product-title">Título del Producto</h2>
+                <p id="product-description">Descripción del Producto</p>
+                <a id="whatsapp-link" href="https://wa.me/1234567890?text=Hola,%20me%20gustaría%20obtener%20más%20información" class="whatsapp-button">
+                    Contáctanos en WhatsApp
+                </a>
+                <br>
+                <a href="javascript:void(0)" onclick="showCatalog()" class="back-button">
+                    Volver al Catálogo
+                </a>
+                <br>
+                <!-- Aquí se agrega la nueva imagen -->
+            </div>
+        </div>
+        <img id="additional-info-img" src="" alt="Información adicional del producto" style="margin-top: 20px; max-width: 100%;" class="hidden">
+    </div>
+    <footer>
+        <p>&copy; 2024 Tienda de Productos Automotrices</p>
+        <p>Manzana 2 Lote 2 segunda etapa, urbanización Panamericana</p>
+        <p>Teléfono: +57 300 2917564</p>
+        <p>Email: filtrosyaceitesmac@gmail.com</p>
+    </footer>
+</body>
+</html>
