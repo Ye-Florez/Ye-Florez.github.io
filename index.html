@@ -32,6 +32,100 @@
             margin-bottom: 10px;
         }
 
+        /*Estilo de la pestaña nosotros*/
+        #nosotros.container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.81);
+        }
+
+        #nosotros h1 {
+            color: #1f6db3;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        #nosotros h2 {
+            color: #125691;
+            text-align: left;
+            font-size: 1.8rem;
+        }
+
+        #nosotros p {
+            margin: 20px;
+            color: #555;
+            text-align: left; /* Alinea los párrafos a la izquierda */
+            font-size: 1.25rem;
+        }
+
+        #nosotros img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #nosotros .section {
+            padding: 20px 0;
+        }
+
+        #nosotros .full-width img {
+            width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
+            margin: 0; /* Elimina cualquier margen */
+        }
+
+        #nosotros .persona {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Espacio entre filas */
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px;
+            border: 4px solid #cfe4fc;
+        }
+
+        #nosotros .persona img {
+            margin-right: 20px; /* Espacio entre la imagen y el texto */
+            flex-shrink: 0; /* Evita que las imágenes se reduzcan */
+            width: 250px; /* Tamaño fijo para las imágenes */
+            height: auto;
+            border-radius: 10%;
+        }
+
+        #nosotros .persona div {
+            flex: 1;
+        }
+
+        #quienes-somos, #vision, #mision {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 4px solid #cfe4fc;
+        }
+
+        #talento-humano {
+            background-color: rgb(250, 250, 255);
+            padding: 20px;
+            border: 1px solid rgb(215, 215, 220);
+            border-radius: 10px;
+            border: 4px solid #cfe4fc;
+        }
+
+        .boton { 
+            display: flex; justify-content: center; /* Centra horizontalmente */ 
+            align-items: center; /* Centra verticalmente */    
+        }         
+        .boton img { 
+            width: 400px; /* Ancho específico */ 
+            height: 300px; /* Altura específica */ 
+        }
+        /*PRODUCTOS*/
         nav {
             width: 100%;
             background-color: #1f6db3; /* Azul oscuro */
@@ -67,10 +161,9 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 10px;
         }
-
+    
         .product {
             background-color: rgb(251, 251, 251); /* Ligero tono azul */
             border: 1px solid #d3d9fa;
@@ -81,7 +174,7 @@
             cursor: pointer; /* Indica que es clicable */
             transition: transform 0.2s;
         }
-
+       
         .product:hover {
             transform: scale(1.05);
         }
@@ -90,11 +183,30 @@
             max-width: 100%;
             height: auto;
             border-radius: 5px;
+            object-fit: cover;
         }
 
         .product h2 {
             margin: 10px 0;
             color: #1f6db3; /* Azul oscuro */
+            font-size: 25px;
+        }
+
+        /* Elimina los márgenes y el padding de los botones */ 
+        button.category-button { 
+            padding: 10px 20px; 
+            margin: 10px; 
+            font-size: 16px; 
+            border: 1px solid #ddd; 
+            background-color: #1f6db3; 
+            color: #fff; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.2s; 
+        }
+
+        button.category-button:hover { 
+            background-color: #154e84; 
         }
 
         .hidden {
@@ -207,7 +319,7 @@
             text-align: center;
             margin-top: 20px;
         }
-    /*MOSTRAR IMAGENES EN EL CARRUSEL*/ 
+       /*MOSTRAR IMAGENES EN EL CARRUSEL*/ 
         footer p {
             margin: 5px 0;
         }
@@ -243,6 +355,7 @@
             transition: background-color 0.3s, transform 0.3s;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
+        
         .prev:hover, .next:hover { 
             background-color: rgba(255,255,255,1);
             transform: scale(1.2); 
@@ -250,33 +363,67 @@
         }
         .prev { left: 10px; } 
         .next { right: 10px; }
+
+        /*testimonios* ARREGLARR*/
         .testimonials-container {
             width: 100%;
-            max-width: 800px; 
-            margin: 50px auto 20px; 
-            padding: 20px; 
-            text-align: center; 
-            background-color: #f9f9f9;
-            border-radius: 10px; 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }    
-        .testimonial { 
-            margin-bottom: 20px; 
+            max-width: 1000px;
+            margin: 20px auto 20px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
         }
-        .testimonial p { 
-            font-size: 16px; 
-            color: #333; 
+
+        .testimonials-row {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: nowrap; /* Permite ajustar los elementos si es necesario */
+            overflow-x: auto;
+            gap: 10px;
         }
-        .testimonial h4 { 
-            font-size: 18px; 
-            color: #555; 
-            margin-top: 10px; 
+
+        .testimonial {
+            /*flex: 1;*/
+            flex: 0 0 auto;
+            width: 300px;
+            height: 150px;
+            background-color: #ffffff;
+            border: 1px solid #ccc; /* Borde más grueso */
+            border-radius: 15px; /* Bordes más redondeados */
+            padding: 56px; /* Más espacio interior */
+            margin: 10px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto estético */
+        }
+
+        .testimonial img {
+            width: 120px; /* Ajusta el tamaño de las imágenes */
+            height: 150px;
+            /*border-radius: 50%;*/
+            margin-right: 10px;
+            float: left; /* Alinea la imagen a la izquierda */
+        }
+
+        .testimonial-content {
+            overflow: hidden; /* Asegura que el texto no se superponga con la imagen */
+        }
+
+        .testimonial p {
+            font-size: 20px;
+            color: #333;
+            margin: 0; /* Elimina el margen para evitar espacios innecesarios */
+        }
+
+        .testimonial h4 {
+            font-size: 15px;
+            color: #555;
+            margin-top: 10px; /* Añade margen solo en la parte superior */
         }
 
         /*vista de productos*/
         .product {
-            width: 200px; /* Ajusta el ancho deseado */
-            height: 300px; /* Ajusta la altura deseada */
+            width: 300px; /* Ajusta el ancho deseado */
+            height: 400px; /* Ajusta la altura deseada */
             border: 4px solid #cfe4fc;
             /*border-image: linear-gradient(45deg, #00008B, #00BFFF) 1;*/
             border-radius: 5px;
@@ -286,22 +433,17 @@
             transition: transform 0.2s;
             overflow: hidden;
             margin: 5px;
-            display: flex;
+            display: inline-block;
             flex-direction: column;
             justify-content: space-between;
             text-align: center;
         }
+        
 
         .product img {
             width: 100%;
             height: 60%; /* Ajusta la altura de la imagen dentro del cuadro */
             object-fit: cover; /* Asegura que la imagen se ajuste al cuadro sin distorsión */
-            /*border: 6px solid;*/
-            /*
-            border-radius: 15px; /* Borde curvo 
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 10px;
-            */
         }
 
         .product h2 {
@@ -314,6 +456,8 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+
+        
     </style>
     <script>
         let slideIndex = 0;
@@ -336,224 +480,196 @@
         1: {
             img: 'img/FA-A14616.png',
             title: 'Filtro de aceite A14616',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para la marca CHEVROLET.',
             additionalImg: 'img/FA-A14616-A.png'  // Imagen adicional
         },
         2: {
             img: 'img/FA-A14476.png',
             title: 'Filtro de aceite A14476',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para las marcas BYD, CASE/CASE IH, CHERY, CHEVROLET, DAIHATSU, GEELY, GREAT WALL, ISEKI, JOHN DEERE, KAWASAKI, NISSAN, SIMPLICITY, TOYOTA, ZOTIE.',
             additionalImg: 'img/FA-A14476-A.png'  // Imagen adicional
         },
         3: {
             img: 'img/FA-A111.png',
             title: 'Filtro de aceite A111',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para las marcas CHEVROLET, DAEWOO, GMC, HYSTER.',
             additionalImg: 'img/FA-A111-A.png'  // Imagen adicional
         },
         4: {
             img: 'img/FA-A323.png',
             title: 'Filtro de aceite A323',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para las marcas AUSA, BOBCAT, CHEVROLET, GEHL, GENIE, HITACHI, HONDA, INGERSOLLRAND, JOHN DEERE, KAESER, KOMATSU, KUBOTA, MAZDA, MCCORMICK, MITSUBISHI, TENNANT,TORO, WESTERBEKE.',
             additionalImg: 'img/FA-A323-A.png'  // Imagen adicional
         },
         5: {
             img: 'img/FA-A1402.png',
             title: 'Filtro de aceite A1402',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aceite flujo completo, especial para transporte liviano.\nSu aplicación principal es para las marcas CASE/CASE IH, CITROEN, DEUTZ-FAHR, FIAT, GREAT WALL, HITACHI, HONDA, HUERLIMANN TRACTORS, HYUNDAI, IHI, JAC, KOMATSU, MASSEY FERGUSON, MAZDA, MITSUBISHI, NEUSON, NISSAN, POLARIS, SAME, TORO, YANMAR.',
             additionalImg: 'img/FA-A1402-A.png'  // Imagen adicional
         },
         6: {
             img: 'img/FA-A223.png',
             title: 'Filtro de aceite A223',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aceite flujo completo, especial para transporte liviano.\n\nSu aplicación principal es para las marcas CHERY, CHEVROLET, FORD, JEEP, MCCORMICK, SKODA, SULLAIR, SUNWARD, SUZUKI, TOYOTA, VOLKSWAGEN.',
             additionalImg: 'img/FA-A223-A.png'  // Imagen adicional
         },
         7: {
             img: 'img/FA-A7041SP.png',
             title: 'Filtro de aceite A7041SP',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aceite flujo completo, especial para transporte mediano.\n\nSu aplicación principal es para las marcas CHEVROLET, CLARK, DETROIT DIESEL, HINO, ISUZU.',
             additionalImg: 'img/FA-A7041SP-A.png'  // Imagen adicional
         },
         8: {
             img: 'img/FAR-AP2712.png',
             title: 'Filtro de aire AP2712',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire primario, cilíndrico. Especial para transporte mediano.\n\nSu aplicación principal es para las marcas CHEVROLET, GMC, HITACHI, IHI, ISUZU, JAC, JCB, KUBOTA, NISSAN.',
             additionalImg: 'img/FAR-AP2712-A.png'  // Imagen adicional
         },
         9: {
             img: 'img/FAR-AP4495.png',
             title: 'Filtro de aire\nAP4495',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire primario, panel rígido. Especial para transporte liviano.\n\nSu aplicación principal es para la marca CHEVROLET.',
             additionalImg: 'img/FAR-AP4495-A.png'  // Imagen adicional
         },
         10: {
             img: 'img/FAR-AP0978.png',
             title: 'Filtro de aire\nAP0978',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire primario, panel flexible. Especial para transporte liviano.\n\nSu aplicación principal es para las marcas DACIA, RENAULT.',
             additionalImg: 'img/FAR-AP0978-A.png'  // Imagen adicional
         },
         11: {
             img: 'img/FAR-AP3196.png',
             title: 'Filtro de aire AP3196',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire primario, panel rígido. Especial para transporte liviano.\n\nSu aplicación principal es para la marca CHEVROLET.',
             additionalImg: 'img/FAR-AP3196-A.png'  // Imagen adicional
         },
         12: {
             img: 'img/FAR-AP3554.png',
             title: 'Filtro de aire AP3554',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire primario, panel flexible. Especial para transporte liviano.\n\nSu aplicación principal es para las marcas RENAULT, SSANGYONG.',
             additionalImg: 'img/FAR-AP3554-A.png'  // Imagen adicional
         },
         13: {
             img: 'img/FAR-APC010.png',
             title: 'Filtro de aire APC010',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire primario, cilíndrico. Especial para transporte liviano diésel.\n\nSu aplicación principal es para las marcas FORD, MAZDA, TOYOTA.',
             additionalImg: 'img/FAR-APC010-A.png'  // Imagen adicional
         },
         14: {
             img: 'img/FC-PFG25121074.png',
             title: 'Filtro de combustible PFG25121074',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de combustible gasolina. Especial para transporte liviano.\n\nSu aplicación principal es para las marcas CHANGAN, CHERY, CHEVROLET, DAEWOO, FIAT, FOTON, HONDA, JEEP, MAZDA.',
             additionalImg: 'img/FC-PFG25121074-A.png'  // Imagen adicional
         },
         15: {
             img: 'img/FC-A941SP.png',
             title: 'Filtro de combustible A941SP',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de combustible primario. Especial para transporte mediano. \n\nSu aplicación principal es para las marcas ISUZU, KOMATSU, NISSAN, ROSCO, TOYOTA.',
             additionalImg: 'img/FC-A941SP-A.png'  // Imagen adicional
         },
         16: {
             img: 'img/FC-A243004.png',
             title: 'Filtro de combustible A243004',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de combustible primario. Especial para transporte mediano. \n\nSu aplicación principal es para las marcas AGRALE, ALLIS-CHALMERS, ASKAM KAMYON, ATLAS COPCO, ATLAS WEYHAUSEN, BARREIROS, BAUMANN,BERTHOUD, BMC, BOBCAT, BUEHRER, CARRARO, CASE/CASE IH, CHAMPION ROAD, CLARK, COMPAIR, DEMAG, DENNIS, DEUTZ, DEUTZ-FAHR, DITCH WITCH, DOPPSTADT, DYNAPAC, EICHER, FENDT, FIATALLIS, FORD, FOTON, FREEMAN, GENIE, GOLDO TRACTORS, HAMM, HITACHI, HOLDER TRACTORS, HUERLIMANN TRACTORS,IKARUS, IRISBUS, IVECO, JELCZ, KALMAR, KENWORTH, KOMATSU, KRAMER, LIEBHERR, LINDE, MANITOU,MENGELE, ORENSTEIN & KOPPEL, PEGASO, REFORM-WERKE, RENAULT VI, ROMAN, SAMBRON, SAME, SCHANZLIN, STEINBOCK, STILL, TIMBERJACK, VALMET, VOLKSWAGEN,VOLVO, WHITE.',
             additionalImg: 'img/FC-A243004-A.png'  // Imagen adicional
         },
         17: {
             img: 'img/FC-PP7355.png',
             title: 'Filtro de combustible PP7355',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de combustible primario. Especial para transporte liviano diésel. \n\nSu aplicación principal es para las marcas CHEVROLET, ISUZU, MITSUBISHI, TOYOTA.',
             additionalImg: 'img/FC-PP7355-A.png'  // Imagen adicional
         },
         18: {
             img: 'img/FC-AK570SP.png',
             title: 'Filtro de combustible AK570SP',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro separador agua combustible con sensor. Especial para transporte liviano. \n\nSu aplicación principal es para las marcas ASIA, CATERPILLAR, CHEVROLET, DAIHATSU, GMC, HITACHI, HYSTER.',
             additionalImg: 'img/FC-AK570SP-A.png'  // Imagen adicional
         },
         19: {
             img: 'img/FCA-AP3109.png',
             title: 'Filtro de cabina AP3109',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire primario, panel rígido. Especial para transporte liviano. \n\nSu aplicación principal es para la marca MAZDA.',
             additionalImg: 'img/FCA-AP3109-A.png'  // Imagen adicional
         },
         20: {
             img: 'img/FCA-AP31064.png',
             title: 'Filtro de cabina AP31064',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire acondicionado de cabina, panel rígido. Especial para transporte liviano. \n\nSu aplicación principal es para la marca RENAULT.',
             additionalImg: 'img/FCA-AP31064-A.png'  // Imagen adicional
         },
         21: {
             img: 'img/FCA-AP31088.png',
             title: 'Filtro de cabina AP31088',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire acondicionado de cabina, panel rígido. Especial para transporte liviano. \n\nSu aplicación principal es para la marca NISSAN.',
             additionalImg: 'img/FCA-AP31088-A.png'  // Imagen adicional
         },
         22: {
             img: 'img/FCA-AP31081.png',
             title: 'Filtro de cabina AP31081',
-            category: 'todos',
-            subcategory: 'filtros',
+            category: 'filtros',
             description: 'Filtro de aire acondicionado de cabina, panel rígido. Especial para transporte liviano. \n\nSu aplicación principal es para la marca SUBARU, TOYOTA.',
             additionalImg: 'img/FCA-AP31081-A.png'  // Imagen adicional
         },
         23: {
             img: 'img/A-SAE250.png',
             title: 'Trasmisiones SAE250',
-            category: 'todos',
-            subcategory: 'aceites',
+            category: 'aceites',
             description: 'TRASMISIONES GL-1 MOTORLUB esta formulado con aceites base altamente refinados de alto desempeño, son lubricantes recomendados para transmisiones, ejes e impulsores finales en las que se requiera un protección APIGL-1.<br><br><strong>BENEFICIOS</strong><br><br>Para uso en vehículos comerciales de trasmisión manual, árboles e impulsores finales que requieren API GL-1. En carretera para camiones de trabajo liviano y pesado, buses y furgonetas. Resistencia a la oxidación. Buena protección  a la herrumbe y al desgaste.<br><br><strong>TAMAÑO:</strong> Galón',
             additionalImg: ''  // Imagen adicional
         },
         24: {
             img: 'img/A-SAE140.png',
-            title: 'TRASMISIONES SAE140',
-            category: 'todos',
-            subcategory: 'aceites',
+            title: 'Trasmisiones SAE140',
+            category: 'aceites',
             description: 'TRASMISIONES GL-1 MOTORLUB esta formulado con aceites base altamente refinados de alto desempeño, son lubricantes recomendados para transmisiones, ejes e impulsores finales en las que se requiera un protección APIGL-1.<br><br><strong>BENEFICIOS</strong><br><br>Para uso en vehículos comerciales de trasmisión manual, árboles e impulsores finales que requieren API GL-1. En carretera para camiones de trabajo liviano y pesado, buses y furgonetas. Resistencia a la oxidación. Buena protección  a la herrumbe y al desgaste.<br><br><strong>TAMAÑO:</strong> Galón',
             additionalImg: ''  // Imagen adicional
         },
         25: {
             img: 'img/A-ISO68.png',
-            title: 'HIDRAULICO ISO68',
-            category: 'todos',
-            subcategory: 'aceites',
+            title: 'Hidraulico ISO68',
+            category: 'aceites',
             description: 'HIDRAULICO ISO68 ofrece protección antidesgaste, lo que reduce los costos de mantenimiento al minimizar el desgaste de los componentes. Su resistencia a la oxidación prolonga la vida útil del lubricante y del sistema hidráulico.<br><br><strong>BENEFICIOS</strong><br><br>Ideal para sistemas hidrostáticos de alta presión, proporcionando lubricación eficiente y protección contra la corrosión y la oxidación, asegurando así un rendimiento fiable en diversas aplicaciones industriales y de vehículos.<br><br><strong>TAMAÑO:</strong> Galón',
             additionalImg: ''  // Imagen adicional
         },
         26: {
             img: 'img/G-MLAZULCALCIO.jpeg',
             title: 'Grasa Azul de Calcio',
-            category: 'todos',
-            subcategory: 'grasas',
+            category: 'grasas',
             description: 'GRASA AZUL DE CALCIO es una excelente opción multipropósito para la lubricación y protección de componentes automotrices. Está formulada con jabón de calcio y aceites minerales refinados de baja viscosidad, mejorada con inhibidores de oxidación y aditivos que mejoran la adherencia<br><br><strong>BENEFICIOS</strong><br><br>Esta grasa es ideal para aplicaciones que requieren una protección superior contra la corrosión y el desgaste, manteniendo los componentes bien lubricados y protegidos en diversas condiciones.<br><br><strong>TAMAÑO:</strong> Cuñete',
             additionalImg: ''  // Imagen adicional
         },
         27: {
             img: 'img/R-MLREFRIVERDE.jpeg',
             title: 'Liquido Refrigerante Rojo',
-            category: 'todos',
-            subcategory: 'refrigerantes',
+            category: 'refrigerantes',
             description: 'MOTOCOOLER LIQUIDO REFRIGERANTE Ofrece protección contra la corrosión de los componentes metálicos presentes en el motor como en el circuito de refrigeración.<br><br><strong>TAMAÑO:</strong> Un cuarto',
             additionalImg: ''  // Imagen adicional
         },
         28: {
             img: 'img/R-MLREFRIROJO.jpeg',
             title: 'Liquido Refrigerante Verde',
-            category: 'todos',
-            subcategory: 'refrigerantes',
+            category: 'refrigerantes',
             description: 'MOTOCOOLER LIQUIDO REFRIGERANTE Ofrece protección contra la corrosión de los componentes metálicos presentes en el motor como en el circuito de refrigeración.<br><br><strong>TAMAÑO:</strong> Un cuarto',
             additionalImg: ''  // Imagen adicional
         }
@@ -582,22 +698,25 @@
         }
     }
 
-        function showCatalog(category = '', subcategory = '') {
+        function showCatalog(category = '') {
             document.getElementById('inicio').classList.add('hidden');
             document.getElementById('nosotros').classList.add('hidden');
             document.getElementById('product-details').classList.add('hidden');
             document.getElementById('productos').classList.remove('hidden');
 
-            loadCatalog(category, subcategory);
+            loadCatalog(category);
         }
 
         function searchProduct() {
-        const searchTerm = document.getElementById('search-input').value.toLowerCase();
-        const catalogFiltros = document.getElementById('catalog-filtros');
-        const catalogAceites = document.getElementById('catalog-aceites');
-        const catalogRefrigerantes = document.getElementById('catalog-refrigerantes');
-        const catalogGrasas = document.getElementById('catalog-grasas');
-        const catalogOtros = document.getElementById('catalog-otros');
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const catalogTodos = document.getElementById('catalog-todos');
+            const catalogFiltros = document.getElementById('catalog-filtros');
+            const catalogAceites = document.getElementById('catalog-aceites');
+            const catalogRefrigerantes= document.getElementById('catalog-refrigerantes');
+            const catalogGrasas = document.getElementById('catalog-grasas');
+            const catalogOtros = document.getElementById('catalog-otros');
+                    // Asegúrate de que los contenedores existen antes de limpiar
+        if (catalogTodos) catalogTodos.innerHTML = '';            
         if (catalogFiltros) catalogFiltros.innerHTML = '';
         if (catalogAceites) catalogAceites.innerHTML = '';
         if (catalogRefrigerantes) catalogRefrigerantes.innerHTML = '';
@@ -615,33 +734,35 @@
                     <h2>${product.title}</h2>
                 `;
 
-                if (product.subcategory === 'filtros') {
+                if (product.category === 'filtros') {
                     if (catalogFiltros) catalogFiltros.appendChild(productDiv);
-                } else if (product.subcategory === 'aceites') {
+                } else if (product.category === 'aceites') {
                     if (catalogAceites) catalogAceites.appendChild(productDiv);
-                } else if (product.subcategory === 'refrigerantes') {
+                } else if (product.category === 'refrigerantes') {
                     if (catalogRefrigerantes) catalogRefrigerantes.appendChild(productDiv);
-                } else if (product.subcategory === 'grasas') {
+                }else if (product.category === 'grasas') {
                     if (catalogGrasas) catalogGrasas.appendChild(productDiv);
-                } else if (catalogOtros) {
+                }else if (catalogOtros) {
                     catalogOtros.appendChild(productDiv);
                 }
             }
         }
     }
 
-
-        function loadCatalog(category = '', subcategory = '') {
+    function loadCatalog(category = '') {
         const catalogFiltros = document.getElementById('catalog-filtros');
         const catalogAceites = document.getElementById('catalog-aceites');
         const catalogRefrigerantes = document.getElementById('catalog-refrigerantes');
         const catalogGrasas = document.getElementById('catalog-grasas');
         const catalogOtros = document.getElementById('catalog-otros');
-        catalogFiltros.innerHTML = '';
-        catalogAceites.innerHTML = '';
-        catalogRefrigerantes.innerHTML = '';
-        catalogGrasas.innerHTML = '';
-        catalogOtros.innerHTML = '';
+        const catalogTodos = document.getElementById('catalog-todos');
+        // Limpiar contenedores 
+        if (catalogFiltros) catalogFiltros.innerHTML = ''; 
+        if (catalogAceites) catalogAceites.innerHTML = ''; 
+        if (catalogRefrigerantes) catalogRefrigerantes.innerHTML = ''; 
+        if (catalogGrasas) catalogGrasas.innerHTML = ''; 
+        if (catalogOtros) catalogOtros.innerHTML = ''; 
+        if (catalogTodos) catalogTodos.innerHTML = '';
 
         for (let id in products) {
             const product = products[id];
@@ -653,26 +774,16 @@
                 <h2>${product.title}</h2>
             `;
 
-            if ((category === 'todos' || category === '') && (subcategory === '' || product.subcategory === subcategory)) {
-                if (product.subcategory === 'filtros') {
+            if (category === '' || category === 'todos') { 
+                if (catalogTodos) catalogTodos.appendChild(productDiv); 
+            } else if (product.category === category) 
+            { if (category === 'filtros') {
                     catalogFiltros.appendChild(productDiv);
-                } else if (product.subcategory === 'aceites') {
+                } else if (category === 'aceites') {
                     catalogAceites.appendChild(productDiv);
-                } else if (product.subcategory === 'refrigerantes') {
+                } else if (category === 'refrigerantes') {
                     catalogRefrigerantes.appendChild(productDiv);
-                } else if (product.subcategory === 'grasas') {
-                    catalogGrasas.appendChild(productDiv);
-                } else {
-                    catalogOtros.appendChild(productDiv);
-                }
-            } else if (product.category === category && (subcategory === '' || product.subcategory === subcategory)) {
-                if (subcategory === 'filtros') {
-                    catalogFiltros.appendChild(productDiv);
-                } else if (subcategory === 'aceites') {
-                    catalogAceites.appendChild(productDiv);
-                } else if (subcategory === 'refrigerantes') {
-                    catalogRefrigerantes.appendChild(productDiv);
-                } else if (subcategory === 'grasas') {
+                } else if (category === 'grasas') {
                     catalogGrasas.appendChild(productDiv);
                 } else {
                     catalogOtros.appendChild(productDiv);
@@ -680,7 +791,6 @@
             }
         }
     }
-
 
     document.addEventListener('DOMContentLoaded', function() {
         showSection('inicio'); // Mostrar la sección de inicio por defecto
@@ -692,14 +802,7 @@
                 searchProduct();
             }
         });
-        loadCatalog('todos');
     });
-
-    /*
-    document.addEventListener('DOMContentLoaded', function() {
-        showSection('inicio'); // Mostrar la sección de inicio por defecto
-    });
-    */
 
     function showSection(sectionId) {
         const sections = document.querySelectorAll('.container');
@@ -711,12 +814,13 @@
             }
         });
     }
+    document.addEventListener('DOMContentLoaded', () => showSection('inicio'));
     </script>
+    
 </head>
 <body>
     <header>
         <img src="img/logo.png" alt="Logo de la tienda" width="1400" height="90">
-        
     </header>
     <nav>
         <a onclick="showSection('inicio')">Inicio</a>
@@ -724,7 +828,7 @@
         <a onclick="showCatalog('todos')">Productos</a>
     </nav>
     <div id="inicio" class="container">
-        <h1>Bienvenidos a MAC</h1>
+        <h1 style="color: #1f6db3;"> Bienvenidos a MAC</h1>
         <p>Encuentra los mejores productos automotrices aquí.</p>
         <div class="carousel-container">
             <div class="carousel-slide" id="carousel-slide">
@@ -733,58 +837,120 @@
                 <img src="img/D-AUT3.png" alt="Imagen 2">
             </div>
         </div>
-        
-        <div id="ubicacion" class="container">
-            <h1>Nos puedes encontrar de manera fisica en</h1>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3576.5480107973904!2d-72.44196532551068!3d7.872641106017866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1ses-419!2sco!5e1!3m2!1ses-419!2sco!4v1631297026537!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-
+              
         <div id="testimonials" class="testimonials-container">
-            <h2>Opiniones de Nuestros Clientes</h2>
-            <div class="testimonial">
-                <p>"Excelente servicio y productos de alta calidad. Muy satisfecho con mi compra."</p>
-                <h4>- Juan Pérez</h4>
-            </div>
-            <div class="testimonial">
-                <p>"La atención al cliente es increíble. Me ayudaron a encontrar justo lo que necesitaba."</p>
-                <h4>- María López</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Definitivamente recomendaría esta tienda a todos mis amigos. ¡Gracias por todo!"</p>
-                <h4>- Carlos Gómez</h4>
+            <h2 style="color: #1f6db3;">Opiniones de Nuestros Clientes</h2>
+            <div class="testimonials-row">
+                <div class="testimonial">
+                    <img src="img/D-CLIENTE1.png" alt="Juan Pérez">
+                    <div class="testimonial-content">
+                        <p>"Excelente servicio y productos de alta calidad. Muy satisfecho con mi compra."</p>
+                        <h4>- Juan Pérez</h4>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <img src="img/D-CLIENTE3.png" alt="María López">
+                    <div class="testimonial-content">
+                        <p>"La atención al cliente es increíble. Me ayudaron a encontrar justo lo que necesitaba."</p>
+                        <h4>- María López</h4>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <img src="img/D-CLIENTE2.png" alt="Carlos Gómez">
+                    <div class="testimonial-content">
+                        <p>"Definitivamente recomendaría esta tienda a todos mis amigos. ¡Gracias por todo!"</p>
+                        <h4>- Carlos Gómez</h4>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <h1>Nuestras redes sociales</h1>
-        <a href="https://www.facebook.com/profile.php?id=61561138335849&mibextid=ZbWKwL" target="_blank"> <img src="img/D-FACE.png" alt="Facebook" > </a> 
-        <a href="https://www.instagram.com/filtrosyaceitesmac/profilecard/?igsh=MTJpdzFsa2Q0NDMzNQ==" target="_blank"> <img src="img/D-INSTA.png" alt="Instagram" > </a>
-        <a href="https://wa.me/573002917564?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20productos%20" target="_blank"> <img src="img/D-WHATS.png" alt="Instagram" > </a>
-        <h2></h2>
-        <h2>Gracias por preferirnos</h2>
+        <section>
+            <div><h1 style="color: #1f6db3;">Nos puedes encontrar de manera física en</h1></div>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14304.225997668913!2d-72.51272696035367!3d7.929382076181959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sManzana%202%20Lote%202%20Segunda%20Etapa%2C%20Urbanizaci%C3%B3n%20Panamericana!5e1!3m2!1ses-419!2sco!4v1732338420361!5m2!1ses-419!2sco" width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section> 
+        
+        <div>
+            <h2 style="color: #1f6db3;">Nuestras redes sociales</h2>
+            <a href="https://www.facebook.com/profile.php?id=61561138335849&mibextid=ZbWKwL" target="_blank"> <img src="img/D-FACE.png" alt="Facebook" width="100" height="95"> </a> 
+            <a href="https://www.instagram.com/filtrosyaceitesmac/profilecard/?igsh=MTJpdzFsa2Q0NDMzNQ==" target="_blank"> <img src="img/D-INSTA.png" alt="Instagram"  width="100" height="95"> </a>
+            <a href="https://wa.me/573002917564?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20productos%20" target="_blank"> <img src="img/D-WHATS.png" alt="Instagram"  width="100" height="95"> </a>
+        </div>
+        <p style="color: #1f6db3;">Gracias por preferirnos</p>
     </div>
     <div id="nosotros" class="container hidden">
-        <h1>Quienes somos</h1>
-        <p>FILTROS Y ACEITES MAC, ubicado en la ciudad de Cúcuta, nació en el año 2024, fruto de la dedicación de nuestro personal experimentado. Somos una empresa comprometida en ofrecer productos de mantenimiento automotriz de alto rendimiento, que cuidarán y prolongarán la vida de sus vehículos.</p>
-        <h1>Visión</h1>
-        <p>FILTROS Y ACEITES MAC se visualiza en el 2030 como una empresa destacada en el sector automotriz a nivel nacional. Sus soluciones serán reconocidas por los clientes como un símbolo de calidad y rendimiento, y su enfoque estará dirigido a satisfacer sus necesidades sin perder de vista el impacto medioambiental, al incentivar el uso adecuado de sus productos con campañas de concientización y reciclaje.</p>
-        <h1>Misión</h1>
-        <p>FILTROS Y ACEITES MAC es una organización dedicada a la comercialización de productos consumibles del sector automotriz, con énfasis en vehículos medianos. Estos productos son reconocidos a nivel internacional y son certificados según normas ASTM, Sura e ISO. La empresa está respaldada por un personal humano competente y entregado a representar nuestra honestidad, responsabilidad y compromiso, en adición a esto contamos con una completa red de distribución y servicios para proveer soluciones eficientemente en toda el área metropolitana de Cúcuta.</p>
-        <img src="img/D-SEP.png">
-        <h1>Nuestro Talento humano</h1>
-        <img src="img/TH-GERE.png">
-        <h2>Gerencia</h2>
-        <p>Contador Público graduado de la UFPS con experiencia en la adquisición de productos de grandes compañías, estableciendo acuerdos comerciales y negociando con otras ciudades para asegurar un suministro constante y competitivo.</p>
-        <img src="img/TH-DISTRI.png">
-        <h2>Distribución y venta</h2>
-        <p>Cuenta con 22 años de experiencia como asesor comercial en la empresa en ProCar Inversiones en su en Cúcuta . Se encarga de la distribución de productos y la gestión de ventas directas a clientes, asegurando la correcta finalización de todas las transacciones.</p>
-        <img src="img/TH-FAC.png">
-        <h2>Gestión de facturación</h2>
-        <p>Abogado graduado de la UFPS con experiencia como gestor de facturación en la empresa. Se encarga de asegurar la precisión de las transacciones y de empacar los productos, garantizando que estén organizados y protegidos para su entrega en óptimas condiciones.</p>
-        <img src="img/D-SEP.png">
-        <h1>Nuestras politicas</h1>
-        <h2>Devolución</h2>
-        <h2>Garantias</h2>
+        <div class="section" id="quienes-somos">
+            <h1>Quienes somos</h1>
+            <p>FILTROS Y ACEITES MAC, ubicado en la ciudad de Cúcuta, nació en el año 2024, fruto de la dedicación de nuestro personal experimentado. Somos una empresa comprometida en ofrecer productos de mantenimiento automotriz de alto rendimiento, que cuidarán y prolongarán la vida de sus vehículos.</p>
+        </div>
+        <div class="section" id="vision">
+            <h1>Visión</h1>
+            <p>FILTROS Y ACEITES MAC se visualiza en el 2030 como una empresa destacada en el sector automotriz a nivel nacional. Sus soluciones serán reconocidas por los clientes como un símbolo de calidad y rendimiento, y su enfoque estará dirigido a satisfacer sus necesidades sin perder de vista el impacto medioambiental, al incentivar el uso adecuado de sus productos con campañas de concientización y reciclaje.</p>
+        </div>
+        <div class="section" id="mision">
+            <h1>Misión</h1>
+            <p>FILTROS Y ACEITES MAC es una organización dedicada a la comercialización de productos consumibles del sector automotriz, con énfasis en vehículos medianos. Estos productos son reconocidos a nivel internacional y son certificados según normas ASTM, Sura e ISO. La empresa está respaldada por un personal humano competente y entregado a representar nuestra honestidad, responsabilidad y compromiso, en adición a esto contamos con una completa red de distribución y servicios para proveer soluciones eficientemente en toda el área metropolitana de Cúcuta.</p>
+        </div>
+        <div class="section full-width">
+            <img src="img/D-SEP.png" alt="Logo de la empresa">
+        </div>    
+        <div class="section" id="talento-humano">
+            <h1>Nuestro Talento humano</h1>
+            <div class="persona">
+                <img src="img/TH-GERE.png" alt="Gerencia">
+                <div>
+                    <h2>Gerencia</h2>
+                    <p>Contador Público graduado de la UFPS con experiencia en la adquisición de productos de grandes compañías, estableciendo acuerdos comerciales y negociando con otras ciudades para asegurar un suministro constante y competitivo.</p>
+                </div>
+            </div>
+            <div class="persona">
+                <img src="img/TH-DISTRI.png" alt="Distribución y venta">
+                <div>
+                    <h2>Distribución y venta</h2>
+                    <p>Cuenta con 22 años de experiencia como asesor comercial en la empresa en ProCar Inversiones en su en Cúcuta. Se encarga de la distribución de productos y la gestión de ventas directas a clientes, asegurando la correcta finalización de todas las transacciones.</p>
+                </div>
+            </div>
+            <div class="persona">
+                <img src="img/TH-FAC.png" alt="Gestión de facturación">
+                <div>
+                    <h2>Gestión de facturación</h2>
+                    <p>Abogado graduado de la UFPS con experiencia como gestor de facturación en la empresa. Se encarga de asegurar la precisión de las transacciones y de empacar los productos, garantizando que estén organizados y protegidos para su entrega en óptimas condiciones.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section full-width">
+            <img src="img/D-SEP.png" alt="Logo de la empresa">
+        </div>
+        <div class="section" id="talento-humano">
+            <h1>Nuestras políticas</h1>
+            <div class="persona">
+                <div>
+                    <h2>Politica de Devolución</h2>
+                    <P>Los clientes pueden devolver productos dentro de los 30 días posteriores a la compra, siempre que estén en su estado original, sin signos de uso, daños o desgaste. Para proceder, deben contactar al servicio al cliente para obtener un número de autorización de devolución antes de enviar el producto. El reembolso se realizará a través del mismo método de pago utilizado en la compra original, excluyendo productos personalizados, abiertos o dañados por el cliente.</P>
+                </div>
+            </div>
+            <div class="persona">
+                <div>
+                    <h2>Politica de Garantías</h2>
+                    <P> Todos los productos vienen con una garantía de 1 año a partir de la fecha de compra, cubriendo defectos de fabricación y problemas de rendimiento relacionados con el uso normal. Los clientes deben presentar una reclamación de garantía a través del servicio al cliente, proporcionando el número de serie del producto y una descripción del problema. Dependiendo del caso, la empresa puede ofrecer reparación, reemplazo del producto o reembolso, excluyendo daños resultantes de mal uso, accidentes, modificaciones no autorizadas o desgaste normal.</P>
+                </div>
+            </div>
+        </div>
+        <div class="section full-width">
+            <img src="img/D-SEP.png" alt="Logo de la empresa">
+        </div>
+        <div class="boton">
+            <a href="img/PORTAFOLIO-MAC.pdf" download>
+                <img src="img/D-Boton2.png" alt="Boton">
+            </a>
+        </div>
     </div>
+</body>
+</html>
+
+</body>
+</html>    
     <div id="productos" class="container hidden">
         <h2>Catálogo de Productos</h2>
         <div class="search-bar">
@@ -792,18 +958,17 @@
             <button id="search-button" onclick="searchProduct()">Buscar</button>
         </div>
         <div>
-            <button class="category-button" onclick="loadCatalog('todos', 'filtros')">Filtros</button>
-            <button class="category-button" onclick="loadCatalog('todos', 'aceites')">Aceites</button>
-            <button class="category-button" onclick="loadCatalog('todos', 'refrigerantes')">Refrigerantes</button>
-            <button class="category-button" onclick="loadCatalog('todos', 'grasas')">Grasas</button>
-            <button class="category-button" onclick="loadCatalog('todos', 'otros')">Otros</button>
             <button class="category-button" onclick="loadCatalog('todos')">Todos</button>
+            <button class="category-button" onclick="loadCatalog('filtros')">Filtros</button>
+            <button class="category-button" onclick="loadCatalog('aceites')">Aceites</button>
+            <button class="category-button" onclick="loadCatalog('refrigerantes')">Refrigerantes</button>
+            <button class="category-button" onclick="loadCatalog('grasas')">Grasas</button>
         </div>
+        <div id="catalog-todos" class="catalog-container"></div>
         <div id="catalog-filtros" class="catalog"></div>
         <div id="catalog-aceites" class="catalog"></div>
         <div id="catalog-refrigerantes" class="catalog"></div> 
         <div id="catalog-grasas" class="catalog"></div>
-        <div id="catalog-otros" class="catalog"></div>
     </div>
     <div id="product-details" class="container hidden">
         <div class="product-details">
