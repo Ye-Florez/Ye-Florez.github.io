@@ -468,6 +468,22 @@
             padding: 50px; 
         }
         
+        /*PIE DE PAGINA*/
+        footer {
+            text-align: center; /* Centro el texto dentro del footer */
+            padding: 20px;
+            background-color: #1f6db3; /* Color de fondo del footer */
+            color: #ffffff; /* Color del texto */
+        }
+
+        .social-icons {
+            margin-bottom: 20px; /* Añade espacio debajo de las redes sociales */
+        }
+
+        .contact-info p {
+            margin: 5px 0; /* Añade espacio entre las líneas de la dirección */
+        }
+        
     </style>
     <script>
         let slideIndex = 0;
@@ -697,6 +713,7 @@
         document.getElementById('product-title').innerText = product.title;
         document.getElementById('product-description').innerHTML = product.description;
         document.getElementById('whatsapp-link').href = 'https://wa.me/573002917564?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20' + encodeURIComponent(product.title);
+        document.getElementById('whatsapp-link').target = '_blank';
         
         // Mostrar la imagen adicional
         var additionalImgElement = document.getElementById('additional-info-img');
@@ -881,15 +898,6 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14304.225997668913!2d-72.51272696035367!3d7.929382076181959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sManzana%202%20Lote%202%20Segunda%20Etapa%2C%20Urbanizaci%C3%B3n%20Panamericana!5e1!3m2!1ses-419!2sco!4v1732338420361!5m2!1ses-419!2sco" width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section> 
-        <section class="colored-section">   
-        <div>
-            <h2>Nuestras redes sociales</h2>
-            <a href="https://www.facebook.com/profile.php?id=61561138335849&mibextid=ZbWKwL" target="_blank"> <img src="img/D-FACE.png" alt="Facebook" width="100" height="95"> </a> 
-            <a href="https://www.instagram.com/filtrosyaceitesmac/profilecard/?igsh=MTJpdzFsa2Q0NDMzNQ==" target="_blank"> <img src="img/D-INSTA (2).png" alt="Instagram"  width="100" height="98"> </a>
-            <a href="https://wa.me/573002917564?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20productos%20" target="_blank"> <img src="img/D-WHATS (2).png" alt="Instagram"  width="100" height="98"> </a>
-        </div>
-        <p>Gracias por preferirnos</p>
-        </section> 
     </div>
     <div id="nosotros" class="container hidden">
         <div class="section" id="quienes-somos">
@@ -996,16 +1004,32 @@
                     Volver al Catálogo
                 </a>
                 <br>
-                <!-- Aquí se agrega la nueva imagen -->
             </div>
         </div>
         <img id="additional-info-img" src="" alt="Información adicional del producto" style="margin-top: 20px; max-width: 100%;" class="hidden">
     </div>
     <footer>
-        <p>&copy; 2024 Tienda de Productos Automotrices</p>
-        <p>Manzana 2 Lote 2 segunda etapa, urbanización Panamericana</p>
-        <p>Teléfono: +57 300 2917564</p>
-        <p>Email: filtrosyaceitesmac@gmail.com</p>
+        <h><strong>Nuestras redes sociales</strong> </h>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61561138335849&mibextid=ZbWKwL" target="_blank">
+                <img src="img/D-FACE.png" alt="Facebook" width="50" height="55">
+            </a>
+            <a href="https://www.instagram.com/filtrosyaceitesmac/profilecard/?igsh=MTJpdzFsa2Q0NDMzNQ==" target="_blank">
+                <img src="img/D-INSTA (2).png" alt="Instagram" width="50" height="57">
+            </a>
+            <a href="https://wa.me/573002917564?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20productos%20" target="_blank">
+                <img src="img/D-WHATS (2).png" alt="Instagram" width="50" height="57">
+            </a>
+        </div>
+        <p></p>
+        <p></p>
+        <div class="contact-info">
+            <p>Manzana 2 Lote 2 segunda etapa, urbanización Panamericana</p>
+            <p>Teléfono: +57 300 2917564</p>
+            <p>Email: filtrosyaceitesmac@gmail.com</p>
+            <p>&copy; 2024 Tienda de Productos Automotrices</p>
+        </div>
     </footer>
+    
 </body>
 </html>
